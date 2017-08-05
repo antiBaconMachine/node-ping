@@ -1,8 +1,7 @@
 #!groovy
 
 String GIT_VERSION
-
-node (
+node {
     stage ('Checkout') {
         deleteDir()
         checkout scm
@@ -17,4 +16,4 @@ node (
     stage ('Test') {
         sh "docker run --rm ntibaconmachine/node-ping:${GIT_VERSION} yarn test"
     }
-)
+}
